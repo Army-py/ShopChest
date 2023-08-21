@@ -391,7 +391,7 @@ public class ShopInteractListener implements Listener {
                             ItemStack itemStack = shop.getProduct().getItemStack();
 
                             if (externalPluginsAllowed || p.hasPermission(Permissions.BYPASS_EXTERNAL_PLUGIN)) {
-                                boolean stack = p.isSneaking() && !Utils.hasAxeInHand(p);
+                                boolean stack = p.isSneaking() && Config.allowSellByStack && !Utils.hasAxeInHand(p);
                                 int amount = stack ? itemStack.getMaxStackSize() : shop.getProduct().getAmount();
 
                                 if (Utils.getAmount(p.getInventory(), itemStack) >= amount) {
@@ -651,6 +651,7 @@ public class ShopInteractListener implements Listener {
      * @param stack Whether a whole stack should be bought
      */
     private void buy(Player executor, final Shop shop, boolean stack) {
+        if (!Config.allowBuyByStack) stack = false;
         final MessageRegistry messageRegistry = plugin.getLanguageManager().getMessageRegistry();
 
         plugin.debug(executor.getName() + " is buying (#" + shop.getID() + ")");
@@ -818,6 +819,7 @@ public class ShopInteractListener implements Listener {
      * @param shop Shop, to which the player sells
      */
     private void sell(Player executor, final Shop shop, boolean stack) {
+        if (!Config.allowSellByStack) stack = false;
         final MessageRegistry messageRegistry = plugin.getLanguageManager().getMessageRegistry();
 
         plugin.debug(executor.getName() + " is selling (#" + shop.getID() + ")");

@@ -98,6 +98,12 @@ allow-decimals-in-price: true
 # Set whether players should be allowed to sell/buy broken items.
 allow-broken-items: false
 
+# Enable or disable the ability to buy items by stack (if enabled, this works when buying in sneak).
+allow-buy-by-stack: true
+
+# Enable or disable the ability to sell items by stack (if enabled, this works when selling in sneak).
+allow-sell-by-stack: true
+
 # Set whether the level of a potion or tipped arrow (if upgraded) should be
 # appended to the item name. If set to true, the level ("II") will be
 # displayed after the item name, but only if the item does not have a

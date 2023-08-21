@@ -225,6 +225,17 @@ public class Config {
      **/
     public static boolean allowBrokenItems;
 
+
+    /**
+     * Whether players are allowed to buy items by stack
+     **/
+    public static boolean allowBuyByStack;
+
+    /**
+     * Whether players are allowed to sell items by stack
+     **/
+    public static boolean allowSellByStack;
+
     /**
      * Whether only the shop a player is pointing at should be shown
      **/
@@ -456,6 +467,8 @@ public class Config {
         maximumPrices = (plugin.getConfig().getConfigurationSection("maximum-prices") == null) ? new HashSet<String>() : plugin.getConfig().getConfigurationSection("maximum-prices").getKeys(true);
         allowDecimalsInPrice = plugin.getConfig().getBoolean("allow-decimals-in-price");
         allowBrokenItems = plugin.getConfig().getBoolean("allow-broken-items");
+        allowBuyByStack = plugin.getConfig().getBoolean("allow-buy-by-stack");
+        allowSellByStack = plugin.getConfig().getBoolean("allow-sell-by-stack");
         autoCalculateItemAmount = (allowDecimalsInPrice && plugin.getConfig().getBoolean("auto-calculate-item-amount"));
         creativeSelectItem = plugin.getConfig().getBoolean("creative-select-item");
         blacklist = (plugin.getConfig().getStringList("blacklist") == null) ? new ArrayList<String>() : plugin.getConfig().getStringList("blacklist");
